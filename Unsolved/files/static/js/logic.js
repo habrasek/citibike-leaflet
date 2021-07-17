@@ -48,7 +48,7 @@ function createMarkers(response){
 
   stations.forEach(station =>{
     let bikeMarker = L.marker([station.lat, station.lon])
-    .binfPopup(`Station Name: ${station.name}`)
+    .bindPopup(`Station Name: ${station.name}`)
 
     bikeMarkers.push(bikeMarker);
   })
@@ -60,8 +60,7 @@ function createMarkers(response){
 
   // Create a baseMaps object to hold the lightmap layer.
 
-createMap();
-  // Create an overlayMaps object to hold the bikeStations layer.
+d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json").then(createMarkers);  // Create an overlayMaps object to hold the bikeStations layer.
 
 
   // Create the map object with options.
